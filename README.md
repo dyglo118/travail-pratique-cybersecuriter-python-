@@ -1,87 +1,60 @@
-# travail-pratique-cybersecuriter-python-
+--- Simulation du modèle OSI en Python ---
+
+1. Description
+
+Ce projet consiste à simuler le modèle OSI (Open Systems Interconnection) en utilisant le langage Python.
+
+L'objectif est d’illustrer les mécanismes d’encapsulation et de décapsulation des données lors d’une communication réseau.
 
 
+2. Fonctionnalités
 
-# Simulation du modèle OSI
-
-# ---------------- ENCAPSULATION ----------------
-
-def application(data):
-    print("Application :", data)
-    return data
-
-def presentation(data):
-    data = "[ENCODE]" + data
-    print("Présentation :", data)
-    return data
-
-def session(data):
-    data = "[SESSION]" + data
-    print("Session :", data)
-    return data
-
-def transport(data):
-    data = "[PORT:8080]" + data
-    print("Transport :", data)
-    return data
-
-def reseau(data):
-    data = "[IP:192.168.1.1]" + data
-    print("Réseau :", data)
-    return data
-
-def liaison(data):
-    data = "[MAC:AA:BB:CC:DD]" + data
-    print("Liaison :", data)
-    return data
-
-def physique(data):
-    data = "[BITS]" + data
-    print("Physique :", data)
-    return data
+- Simulation des 7 couches du modèle OSI
+- Encapsulation des données (ajout d'informations à chaque couche)
+- Décapsulation des données (suppression progressive des informations)
+- Affichage du message à chaque étape
 
 
-# ---------------- DÉCAPSULATION ----------------
+3. Exécution du projet
 
-def decapsulation(data):
-    print("\n--- Décapsulation ---")
+1. Installer Python sur votre machine
+2. Télécharger le projet
+3. Exécuter la commande suivante :
 
-    data = data.replace("[BITS]", "")
-    print("Physique supprimée :", data)
-
-    data = data.replace("[MAC:AA:BB:CC:DD]", "")
-    print("Liaison supprimée :", data)
-
-    data = data.replace("[IP:192.168.1.1]", "")
-    print("Réseau supprimé :", data)
-
-    data = data.replace("[PORT:8080]", "")
-    print("Transport supprimé :", data)
-
-    data = data.replace("[SESSION]", "")
-    print("Session supprimée :", data)
-
-    data = data.replace("[ENCODE]", "")
-    print("Présentation supprimée :", data)
-
-    print("\nMessage final reçu :", data)
+python programme.py
 
 
-# ---------------- PROGRAMME PRINCIPAL ----------------
+Exemple
 
-message = "Bonjour"
+Message initial :
+Bonjour
 
-print("=== ENCAPSULATION ===\n")
+Après encapsulation :
+[BITS][MAC][IP][PORT][SESSION][ENCODE]Bonjour
 
-data = application(message)
-data = presentation(data)
-data = session(data)
-data = transport(data)
-data = reseau(data)
-data = liaison(data)
-data = physique(data)
+Après décapsulation :
+Bonjour
 
-print("\nDonnées envoyées :", data)
 
-# Décapsulation
-decapsulation(data)
+4. Membres du groupe
+
+- NGONGO KAMBALA Jevic : Développement du code
+- ZOKA BWA Glody : Recherche théorique
+- NKUNA MANATSHITU Aimerance : Rédaction du rapport
+- TSHIBUABUA MALANGA Déborah : Tests et validation
+- BAFUTA IYAMBO Nicie : Mise en forme du document
+
+
+5. Structure du projet
+
+- programme.py : code principal du projet
+- README.md : description du projet
+
+
+6. Objectif pédagogique
+
+Ce projet permet de mieux comprendre :
+
+- Le fonctionnement du modèle OSI
+- Le rôle de chaque couche réseau
+- Les notions d'encapsulation et de décapsulation
